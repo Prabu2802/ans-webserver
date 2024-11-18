@@ -1,0 +1,13 @@
+---
+- name: "Play_task1"
+  apt:
+    name: apache2
+    state: present
+  notify:
+    - restart-web
+- name: "Play_task2"
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+  notify:
+    - restart-web
